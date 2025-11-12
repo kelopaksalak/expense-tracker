@@ -1,7 +1,9 @@
 package com.example.expensetracker.controller;
 
+import com.example.expensetracker.constant.SwaggerTag.EXPENSE;
 import com.example.expensetracker.dto.ExpensesDto;
 import com.example.expensetracker.service.ExpenseService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,6 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/expense")
 @CrossOrigin("*")
+@Tag(name = EXPENSE.NAME, description = EXPENSE.DESCRIPTION)
 public class ExpenseController {
 
     @Autowired
