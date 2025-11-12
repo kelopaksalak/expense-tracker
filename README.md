@@ -49,3 +49,11 @@ DB_PASSWORD=your_password
 ```bash
 mvn spring-boot:run
 ```
+
+## 📘 API Documentation (Swagger)
+After running the project, you can open the Swagger page to see and test all API endpoints:
+
+```bash
+http://localhost:8080/swagger-ui/index.html#/
+```
+Swagger helps you check your API easily without using external tools like Postman.
