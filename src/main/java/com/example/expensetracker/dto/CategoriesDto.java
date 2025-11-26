@@ -15,7 +15,10 @@ import java.time.OffsetDateTime;
 @AllArgsConstructor
 @Data
 public class CategoriesDto {
-    private BigDecimal amount;
-    private String description;
-    private OffsetDateTime expenseDate;
+    private Long id;
+    private String name;
+    private String type;
+    private OffsetDateTime createdAt;
+    private OffsetDateTime updatedAt;
+    private Long idExpense;
 }
