@@ -50,8 +50,12 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoriesDto updateCategory(Long id, CategoriesDto categoriesDto) {
         Categories categories = categoriesRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Category with ID " + id + " is not found!"));
-        categories.setName(categoriesDto.getName());
-        categories.setType(categoriesDto.getType());
+        if (categoriesDto.getName() != null) {
+            categories.setName(categoriesDto.getName());
+        }
+        if (categoriesDto.getType() != null) {
+            categories.setType(categoriesDto.getType());
+        }
         categories.setUpdatedAt(OffsetDateTime.now());
 
         Categories saveCategories = categoriesRepository.save(categories);
@@ -60,6 +64,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void deleteCategory(Long id) {
+        categoriesRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Category with ID " + id + " is not found!"));
         categoriesRepository.deleteById(id);
     }
 }
